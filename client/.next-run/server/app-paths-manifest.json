@@ -1,0 +1,15 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/login/page": "app/login/page.js",
+  "/org/login/page": "app/org/login/page.js",
+  "/page": "app/page.js",
+  "/dashboard/create-org/page": "app/dashboard/create-org/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/org/dashboard/send-email/page": "app/org/dashboard/send-email/page.js",
+  "/dashboard/logs/page": "app/dashboard/logs/page.js",
+  "/dashboard/orgs/page": "app/dashboard/orgs/page.js",
+  "/org/dashboard/logs/page": "app/org/dashboard/logs/page.js",
+  "/org/dashboard/page": "app/org/dashboard/page.js",
+  "/dashboard/templates/page": "app/dashboard/templates/page.js",
+  "/dashboard/send-email/page": "app/dashboard/send-email/page.js"
+}
