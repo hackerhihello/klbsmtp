@@ -74,8 +74,16 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 
+const swaggerUiOptions = {
+  customCssUrl: "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.9.0/swagger-ui.css",
+  customJs: [
+    "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.9.0/swagger-ui-bundle.js",
+    "https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.9.0/swagger-ui-standalone-preset.js"
+  ]
+};
+
 function mountSwagger(app) {
-  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs, swaggerUiOptions));
 }
 
 module.exports = mountSwagger;
