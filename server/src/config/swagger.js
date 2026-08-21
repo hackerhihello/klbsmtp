@@ -74,7 +74,12 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 
+const express = require("express");
+const swaggerUiDist = require("swagger-ui-dist");
+
 function mountSwagger(app) {
+  const swaggerDistPath = swaggerUiDist.getAbsoluteFSPath();
+  app.use("/api-docs", express.static(swaggerDistPath));
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 }
 
