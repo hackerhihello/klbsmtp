@@ -79,6 +79,12 @@ const swaggerUiDist = require("swagger-ui-dist");
 
 function mountSwagger(app) {
   const swaggerDistPath = swaggerUiDist.getAbsoluteFSPath();
+  
+  // Next.js rewritten path
+  app.use("/api/api-docs", express.static(swaggerDistPath));
+  app.use("/api/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+
+  // Standalone Express path
   app.use("/api-docs", express.static(swaggerDistPath));
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 }
