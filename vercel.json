@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/api/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "client/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api-docs(.*)",
+      "dest": "server/api/index.js"
+    },
+    {
+      "src": "/api/v1/(.*)",
+      "dest": "server/api/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "client/package.json"
+    }
+  ],
+  "functions": {
+    "server/api/index.js": {
+      "includeFiles": "server/node_modules/swagger-ui-dist/**"
+    }
+  }
+}
