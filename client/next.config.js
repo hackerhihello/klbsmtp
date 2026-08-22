@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  trailingSlash: true,
   experimental: {
     outputFileTracingIncludes: {
       "/api/api-docs/[[...slug]]": ["./node_modules/swagger-ui-dist/**/*"]
