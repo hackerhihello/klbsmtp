@@ -1,4 +1,4 @@
-const app = require("../../server/app");
+const app = require("../../../server/app");
 
 export const config = {
   api: {

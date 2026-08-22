@@ -2,7 +2,7 @@
 const nextConfig = {
   experimental: {
     outputFileTracingIncludes: {
-      "/api/api-docs": ["./node_modules/swagger-ui-dist/**/*"]
+      "/api/api-docs/[[...slug]]": ["./node_modules/swagger-ui-dist/**/*"]
     },
     serverComponentsExternalPackages: [
       "express",
