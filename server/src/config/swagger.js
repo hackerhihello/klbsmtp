@@ -80,13 +80,24 @@ const swaggerUiDist = require("swagger-ui-dist");
 function mountSwagger(app) {
   const swaggerDistPath = swaggerUiDist.getAbsoluteFSPath();
   
+  // Expose the JSON spec directly
+  app.get("/api/v1/swagger.json", (req, res) => {
+    res.json(specs);
+  });
+
+  const swaggerOptions = {
+    swaggerOptions: {
+      url: "/api/v1/swagger.json"
+    }
+  };
+  
   // Next.js rewritten path
   app.use("/api/api-docs", express.static(swaggerDistPath));
-  app.use("/api/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+  app.use("/api/api-docs", swaggerUi.serve, swaggerUi.setup(null, swaggerOptions));
 
   // Standalone Express path
   app.use("/api-docs", express.static(swaggerDistPath));
-  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(null, swaggerOptions));
 }
 
 module.exports = mountSwagger;
