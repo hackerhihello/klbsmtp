@@ -18,8 +18,8 @@ app.use(express.json({ limit: "10mb" }));
 app.use(appRateLimit);
 
 app.get("/health", (_, res) => res.json({ status: "ok" }));
-app.use("/api/v1", routes);
 mountSwagger(app);
+app.use("/api/v1", routes);
 
 app.use(errorHandler);
 

@@ -1,5 +1,6 @@
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
+const path = require("path");
 
 const options = {
   definition: {
@@ -69,7 +70,7 @@ const options = {
       }
     }
   },
-  apis: ["./src/modules/**/*.js"]
+  apis: [path.join(__dirname, "../modules/**/*.js")]
 };
 
 const specs = swaggerJsdoc(options);
@@ -80,8 +81,8 @@ const swaggerUiDist = require("swagger-ui-dist");
 function mountSwagger(app) {
   const swaggerDistPath = swaggerUiDist.getAbsoluteFSPath();
   
-  // Expose the JSON spec directly
-  app.get("/api/v1/swagger.json", (req, res) => {
+  // Expose the JSON spec directly (handles trailing slash from Next.js config)
+  app.get(["/api/v1/docs", "/api/v1/docs/"], (req, res) => {
     res.json(specs);
   });
 
