@@ -5,9 +5,9 @@ function errorHandler(error, req, res, next) {
   let responseCode;
 
   const isDbError =
-    !process.env.DATABASE_URL ||
+    !process.env.CONVEX_URL ||
     (typeof message === "string" &&
-      (message.includes("DATABASE_URL") ||
+      (message.includes("CONVEX_URL") ||
         message.includes("fetch failed") ||
         message.includes("FetchError") ||
         message.includes("database unavailable")));
@@ -16,7 +16,7 @@ function errorHandler(error, req, res, next) {
     status = 503;
     responseCode = "DATABASE_UNAVAILABLE";
     message =
-      "Cannot connect to the database. Ensure DATABASE_URL is configured correctly in your environment variables.";
+      "Cannot connect to the Convex database. Ensure CONVEX_URL is configured correctly in your environment variables.";
     if (process.env.NODE_ENV === "development") {
       details = {
         hint: "Local: check server/.env. Deployed: check your Vercel project environment variables.",
