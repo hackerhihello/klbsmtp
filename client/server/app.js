@@ -3,7 +3,6 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const routes = require("./routes");
-const mountSwagger = require("./config/swagger");
 const appRateLimit = require("./middleware/rateLimit");
 const errorHandler = require("./middleware/errorHandler");
 
@@ -19,7 +18,6 @@ app.use(appRateLimit);
 
 app.get("/health", (_, res) => res.json({ status: "ok" }));
 app.use("/api/v1", routes);
-mountSwagger(app);
 
 app.use(errorHandler);
 
