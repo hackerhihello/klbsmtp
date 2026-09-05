@@ -1,4 +1,4 @@
-﻿const fs = require("fs");
+const fs = require("fs");
 const path = require("path");
 const swaggerJsdoc = require("swagger-jsdoc");
 
@@ -70,11 +70,11 @@ const options = {
       }
     }
   },
-  apis: [path.resolve(__dirname, "../src/modules/**/*.js")]
+  apis: [path.resolve(__dirname, "../../server/src/modules/**/*.js")]
 };
 
 const specs = swaggerJsdoc(options);
-const outputPath = path.resolve(__dirname, "../../client/public/swagger.json");
+const outputPath = path.resolve(__dirname, "../public/swagger.json");
 fs.writeFileSync(outputPath, JSON.stringify(specs, null, 2));
 console.log("Swagger JSON generated successfully at " + outputPath);
 
