@@ -1,32 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  trailingSlash: true,
   experimental: {
-    outputFileTracingIncludes: {
-      "/api/api-docs/[[...slug]]": ["./node_modules/swagger-ui-dist/**/*"]
-    },
     serverComponentsExternalPackages: [
       "express",
       "bullmq",
       "ioredis",
       "bcryptjs",
       "helmet",
-      "multer",
-      "swagger-ui-dist",
-      "swagger-ui-express"
+      "multer"
     ]
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/api-docs",
-        destination: "/api/api-docs"
-      },
-      {
-        source: "/api-docs/:path*",
-        destination: "/api/api-docs/:path*"
-      }
-    ];
   }
 };
 
