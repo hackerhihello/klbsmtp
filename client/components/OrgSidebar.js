@@ -6,7 +6,8 @@ import { usePathname, useRouter } from "next/navigation";
 const links = [
   { href: "/org/dashboard", label: "Dashboard" },
   { href: "/org/dashboard/send-email", label: "Send Email" },
-  { href: "/org/dashboard/logs", label: "Email Logs" }
+  { href: "/org/dashboard/logs", label: "Email Logs" },
+  { href: "/org/dashboard/api-docs", label: "API Docs" }
 ];
 
 export default function OrgSidebar() {

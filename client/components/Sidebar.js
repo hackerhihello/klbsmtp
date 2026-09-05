@@ -7,7 +7,8 @@ const links = [
   { href: "/dashboard", label: "Dashboard" },
   { href: "/dashboard/create-org", label: "Create Organization" },
   { href: "/dashboard/orgs", label: "Organization List" },
-  { href: "/dashboard/logs", label: "Email Logs" }
+  { href: "/dashboard/logs", label: "Email Logs" },
+  { href: "/dashboard/api-docs", label: "API Docs" }
 ];
 
 export default function Sidebar() {
